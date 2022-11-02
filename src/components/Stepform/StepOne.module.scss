@@ -1,0 +1,173 @@
+@value colors: "./base.module.scss";
+@value input-label from colors;
+@value input-border from colors;
+@value input-text from colors;
+@value select-arrow from colors;
+@value select-true from colors;
+@value select-false from colors;
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 64px;
+
+  .formTitle {
+    display: flex;
+    flex: 0 0 100%;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+
+.inputGroup {
+  margin-top: 24px;
+  
+}
+
+.inputLabel {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  color: input-label;
+  margin-bottom: 8px;
+}
+
+.selectContainer {
+  position: relative;
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    z-index: -2;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 6px 5px 0 5px;
+    border-color: select-arrow transparent transparent transparent;
+    content: "";
+  }
+}
+
+
+input,
+select {
+  width: 100%;
+  padding: 12px 16px;
+  font-weight: 400;
+  font-size: 12px;
+  font-family: 'Noto Sans TC', sans-serif;
+  line-height: 16px;
+  border: 1px solid input-border;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+//input不知為何多32px的padding
+input {
+  width: calc(100% - 34px);
+  color: input-text;
+}
+
+select {
+  color: select-true;
+  background-color: transparent;
+
+  &:required:invalid {
+    color: select-false;
+  }
+
+  cursor: pointer;
+  -webkit-appearance: none;
+
+  option {
+    &[value=""][disabled] {
+      display: none;
+    }
+
+    color: select-true;
+  }
+}
+
+.formBody {
+  width: 100%;
+  .radio-group {
+    position: relative;
+    justify-content: unset;
+    padding: 11px 20px;
+    margin-top: 24px;
+    cursor: pointer;
+
+    input[type='radio'] {
+      width: 20px;
+      height: 20px;
+      margin-right: 20px;
+      align-self: center;
+      -webkit-appearance: none;
+    }
+
+    input[type='radio']::before {
+      content: '';
+      display: block;
+      width: inherit;
+      height: inherit;
+      border: 1px solid #222222;
+      border-radius: 50%;
+      background-color: #FFFFFF;
+    }
+
+    input[type='radio']:checked::before {
+      border: 6px solid #2A2A2A;
+      background-color: #FFFFFF;
+    }
+
+    .radio-info {
+      display: flex;
+      flex-grow: 1;
+      flex-wrap: wrap;
+      align-content: center;
+
+      .col {
+        margin-bottom: 2px;
+      }
+
+      .text {
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 20px;
+      }
+
+      .price,
+      .period {
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+
+    .radio-box-border {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    input[type='radio']~.radio-box-border {
+      border-radius: 4px;
+      border: 1px solid #F0F0F5;
+    }
+
+    input[type='radio']:checked~.radio-box-border {
+      border: 1px solid #2A2A2A;
+    }
+
+    #shipping-standard~.radio-info .shipping-text {
+      font-weight: normal;
+    }
+
+    #shipping-dhl~.radio-info .shipping-text {
+      font-weight: 700;
+    }
+  }
+}

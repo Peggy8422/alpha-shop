@@ -83,14 +83,40 @@
   max-width: $width;
 }
 
+
 :global(.col) {
-  @for $index from 1 to 13 {
-    &.col-#{$index} {
-      @include col-series($index);
-    }
+  justify-content: space-between;
+}
+
+@for $index from 1 to 13 {
+  :global(.col-#{$index}) {
+    @include col-series($index);
   }
 }
 
+// @mixin input-width($prefix, $division) {
+//   $form-full-width: 540;
+
+//   @for $index from 1 to ($division + 1) {
+//     .#{$prefix}-#{$index} {
+//       width: 100% * (($index * 65 + ($index - 1) * 30) / $form-full-width);
+//     }
+//   }
+// }
+
+
+$form-full-width: 540;
+
+@for $index from 1 to 7 {
+  :global(.input-w-#{$index}) {
+    width: 100% * (($index * 65 + ($index - 1) * 30) / $form-full-width);
+  }
+}
+
+//左半部的container
+.stepFormContainer {
+  width: 50%;
+}
 
 
 
