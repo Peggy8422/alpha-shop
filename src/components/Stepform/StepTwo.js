@@ -12,7 +12,7 @@ function RadioInfo({text, price, period}) {
 
 function RadioGroup({id, isChecked = true, children}) {
   return (
-    <label for={id} className="radioGroup">
+    <label htmlFor={id} className="radioGroup">
       <input id={id} type="radio" name="shipping" checked={isChecked}/>
       {children}
     </label>
