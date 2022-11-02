@@ -74,6 +74,23 @@
 @value left-arrow: #000000;
 
 
+@mixin col-series($serial) {
+  display: flex;
+  flex-wrap: wrap;
+  $width: 100% / 12 * $serial;
+  flex: 0 0 $width;
+  align-content: flex-start;
+  max-width: $width;
+}
+
+:global(.col) {
+  @for $index from 1 to 13 {
+    &.col-#{$index} {
+      @include col-series($index);
+    }
+  }
+}
+
 
 
 
