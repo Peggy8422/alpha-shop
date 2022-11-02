@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './StepProgress.module.scss';
 
+
 function Step({step, label}) {
   return (
     <span className={styles.progressGroup}>

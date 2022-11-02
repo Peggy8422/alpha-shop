@@ -1,10 +1,14 @@
+import React from 'react';
+import styles from './StepOne.module.scss';
+import './base.module.scss';
+
 export function InputBox({type, placeholder}) {
   return <input type={type} placeholder={placeholder} />;
 }
 
 export function SelectBox({isRequired = true, children}) {
   return (
-    <div className="selectContainer">
+    <div className={styles.selectContainer}>
       <select required={isRequired}>
         {children}
       </select>
@@ -16,10 +20,10 @@ export function Option({value, isSelected = false, text}) {
   return <option value={value} selected={isSelected}>{text}</option>;
 }
 
-export function InputGroup({groupWidth ,labelTitle, children}) {
+export function InputGroup({global, labelTitle, children}) {
   return (
-    <div className={"inputGroup" + groupWidth}>
-      <label>{labelTitle}</label>
+    <div className={styles.inputGroup + global}>
+      <label className={styles.inputLabel}>{labelTitle}</label>
       {children}
     </div>
   );
@@ -28,31 +32,31 @@ export function InputGroup({groupWidth ,labelTitle, children}) {
 
 function StepOneContent() {
   return (
-    <section>
-      <div className="row">
-        <InputGroup labelTitle="稱謂">
+    <section className={styles.formBody}>
+      <div className="col col-12">
+        <InputGroup global=" input-w-2" labelTitle="稱謂">
           <SelectBox required={false}>
             <Option value="mr" isSelected={true} text="先生"/>
             <Option value="ms" text="女士"/>
             <Option value="mx" text="不明"/>
           </SelectBox>
         </InputGroup>
-        <InputGroup labelTitle="姓名">
+        <InputGroup global=" input-w-4" labelTitle="姓名">
           <InputBox type="text" placeholder="請輸入姓名"/>
         </InputGroup>
       </div>
-      <div className="row">
-        <InputGroup labelTitle="電話">
+      <div className="col col-12">
+        <InputGroup global=" input-w-3" labelTitle="電話">
           <InputBox type="tel" placeholder="請輸入行動電話"/>
         </InputGroup>
-        <InputGroup labelTitle="Email">
+        <InputGroup global=" input-w-3" labelTitle="Email">
           <InputBox type="email" placeholder="請輸入電子郵件"/>
         </InputGroup>
       </div>
-      <div className="row">
-        <InputGroup labelTitle="縣市">
+      <div className="col col-12">
+        <InputGroup global=" input-w-2" labelTitle="縣市">
           <SelectBox>
-            <Option value="" text="請選擇縣市"/>
+            <Option value="" text="請選擇縣市" disabled/>
             <Option value="KLU" text="基隆市"/>
             <Option value="TPH" text="新北市"/>
             <Option value="TPE" text="臺北市"/>
@@ -84,7 +88,7 @@ function StepOneContent() {
             <Option value="LNN" text="連江縣"/>      
           </SelectBox>
         </InputGroup>
-        <InputGroup labelTitle="地址">
+        <InputGroup global=" input-w-4" labelTitle="地址">
           <InputBox type="text" placeholder="請輸入地址"/>
         </InputGroup>
       </div>
@@ -96,8 +100,8 @@ function StepOneContent() {
 //導出"步驟一"表單
 function StepOneWrapper() {
   return (
-    <form >
-      <h3>寄送地址</h3>
+    <form className={styles.formContainer + " col col-12"}>
+      <h3 className={styles.formTitle}>寄送地址</h3>
       <StepOneContent />
     </form>
   );
