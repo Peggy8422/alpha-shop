@@ -6,18 +6,18 @@ export function InputBox({type, placeholder}) {
   return <input type={type} placeholder={placeholder} />;
 }
 
-export function SelectBox({isRequired = true, children}) {
+export function SelectBox({children}) {
   return (
     <div className={styles.selectContainer}>
-      <select required={isRequired}>
+      <select>
         {children}
       </select>
     </div>
   );
 }
 
-export function Option({value, isSelected = false, text}) {
-  return <option value={value} selected={isSelected}>{text}</option>;
+export function Option({value, text}) {
+  return <option value={value}>{text}</option>;
 }
 
 export function InputGroup({global, labelTitle, children}) {
@@ -35,8 +35,8 @@ function StepOneContent() {
     <section className={styles.formBody}>
       <div className="col col-12">
         <InputGroup global=" input-w-2" labelTitle="稱謂">
-          <SelectBox required={false}>
-            <Option value="mr" isSelected={true} text="先生"/>
+          <SelectBox>
+            <Option value="mr" text="先生" selected/>
             <Option value="ms" text="女士"/>
             <Option value="mx" text="不明"/>
           </SelectBox>
@@ -55,7 +55,7 @@ function StepOneContent() {
       </div>
       <div className="col col-12">
         <InputGroup global=" input-w-2" labelTitle="縣市">
-          <SelectBox>
+          <SelectBox required>
             <Option value="" text="請選擇縣市" disabled/>
             <Option value="KLU" text="基隆市"/>
             <Option value="TPH" text="新北市"/>
