@@ -7,6 +7,10 @@
   composes: formTitle from "./StepOne.module.scss";
 }
 
+.formBody {
+  width: 100%;
+}
+
 .radioGroup {
   position: relative;
   justify-content: unset;

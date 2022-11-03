@@ -29,7 +29,7 @@ function RadioGroup({id, children}) {
 
 function StepTwoContent() {
   return (
-    <section>
+    <section className={styles.formBody}>
       <RadioGroup id="shipping-standard">
         <RadioInfo text="運送標準" price="免費" period="約 3~7 個工作天" />
       </RadioGroup>
