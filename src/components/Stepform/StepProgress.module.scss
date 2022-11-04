@@ -1,17 +1,8 @@
-@value colors: "./base.module.scss";
-@value main-text from colors;
-@value undone-progress-border from colors;
-@value done-progress-border from colors;
-@value progress-current-color from colors;
-@value progress-done-color from colors;
-@value progress-undone-color from colors;
-
-
 .topTitle {
   font-weight: 700;
   font-size: 32px;
   line-height: 38px;
-  color: main-text;
+  color: var(--main-text);
 }
 
 .progressContainer {
@@ -27,11 +18,11 @@
   max-width: 60px;
   height: 1px;
   margin: 0px 8px;
-  border: 2px solid done-progress-border;
+  border: 2px solid var(--done-progress-border);
 }
 .pgbUndone {
   composes: progressBar;
-  border-color: undone-progress-border;
+  border-color: var(--undone-progress-border);
 }
 
 .progressGroup {
@@ -64,27 +55,27 @@
 //繼承的樣式無法直接被覆寫
 .pgiDone {
   composes: progressIcon;
-  background-color: done-progress-border;
+  background-color: var(--done-progress-border);
   .text {
-    color: undone-progress-border;
+    color: var(--undone-progress-border);
   }
 }
 .pgiUndone {
   composes: progressIcon;
   background-color: transparent;
-  border: 1px solid progress-undone-color;
+  border: 1px solid var(--progress-undone-color);
   .text {
-    color: progress-undone-color;
+    color: var(--progress-undone-color);
   }
 }
 
 .pglDone {
   composes: progressLabel;
-  color: main-text;
+  color: var(--main-text);
 }
 .pglUndone {
   composes: progressLabel;
-  color: progress-undone-color;
+  color: var(--progress-undone-color);
 }
 
 

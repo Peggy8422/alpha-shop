@@ -6,6 +6,8 @@ export function InputBox({type, placeholder}) {
   return <input type={type} placeholder={placeholder} />;
 }
 
+//註記：有查詢到關於 react-select 提供的 Select元件的用法，以及defaultValue設定預設值搭配 useState()的做法，後續作業進度推進會再嘗試
+
 export function SelectBox({children}) {
   return (
     <div className={styles.selectContainer}>
@@ -36,7 +38,7 @@ function StepOneContent() {
       <div className="col col-12">
         <InputGroup global=" input-w-2" labelTitle="稱謂">
           <SelectBox>
-            <Option value="mr" text="先生" selected/>
+            <Option value="mr" text="先生" />
             <Option value="ms" text="女士"/>
             <Option value="mx" text="不明"/>
           </SelectBox>
@@ -55,8 +57,8 @@ function StepOneContent() {
       </div>
       <div className="col col-12">
         <InputGroup global=" input-w-2" labelTitle="縣市">
-          <SelectBox required>
-            <Option value="" text="請選擇縣市" disabled/>
+          <SelectBox>
+            <Option value="" text="請選擇縣市"/>
             <Option value="KLU" text="基隆市"/>
             <Option value="TPH" text="新北市"/>
             <Option value="TPE" text="臺北市"/>

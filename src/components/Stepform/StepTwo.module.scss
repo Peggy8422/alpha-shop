@@ -1,4 +1,4 @@
-
+//繼承StepOne寫好的formContainer, formTitle樣式
 .formContainer {
   composes: formContainer from "./StepOne.module.scss";
 }
@@ -46,7 +46,7 @@
   }
 }
 
-//為避免跟StepOne已經定義的input tag selector混淆
+//為避免跟StepOne已經定義的 input tag selector混淆
 .inputRadio {
   width: 20px;
   height: 20px;

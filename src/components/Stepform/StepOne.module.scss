@@ -1,11 +1,4 @@
-@value colors: "./base.module.scss";
-@value input-label from colors;
-@value input-border from colors;
-@value input-text from colors;
-@value select-arrow from colors;
-@value select-true from colors;
-@value select-false from colors;
-
+//start 三個表單都共用的外層樣式部分--StepTwo, StepThree用composition
 .formContainer {
   display: flex;
   flex-direction: column;
@@ -15,14 +8,15 @@
 .formTitle {
   display: flex;
   flex: 0 0 100%;
+  margin: 0;
   font-weight: 700;
   font-size: 24px;
   line-height: 24px;
 }
+//end
 
 .inputGroup {
   margin-top: 24px;
-  
 }
 
 .inputLabel {
@@ -30,7 +24,7 @@
   font-weight: bold;
   font-size: 12px;
   line-height: 16px;
-  color: input-label;
+  color: var(--input-label);
   margin-bottom: 8px;
 }
 
@@ -45,12 +39,12 @@
     pointer-events: none;
     border-style: solid;
     border-width: 6px 5px 0 5px;
-    border-color: select-arrow transparent transparent transparent;
+    border-color: var(--select-arrow) transparent transparent transparent;
     content: "";
   }
 }
 
-
+//start 所有input, select標籤的共用設定
 input,
 select {
   width: 100%;
@@ -59,23 +53,23 @@ select {
   font-size: 12px;
   font-family: 'Noto Sans TC', sans-serif;
   line-height: 16px;
-  border: 1px solid input-border;
+  border: 1px solid var(--input-border);
   border-radius: 4px;
   background-color: transparent;
 }
 
-//input不知為何多32px的padding
+
 input {
-  width: calc(100% - 34px);
-  color: input-text;
+  width: calc(100% - 34px); //input不知為何多32px的padding
+  color: var(--input-text);
 }
 
 select {
-  color: select-true;
+  color: var(--select-true);
   background-color: transparent;
 
   &:required:invalid {
-    color: select-false;
+    color: var(--select-false);
   }
 
   cursor: pointer;
@@ -86,9 +80,10 @@ select {
       display: none;
     }
 
-    color: select-true;
+    color: var(--select-true);
   }
 }
+//end
 
 .formBody {
   width: 100%;
