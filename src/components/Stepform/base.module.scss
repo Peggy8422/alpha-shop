@@ -11,15 +11,6 @@
   --main-font-family: 'Noto Sans TC', sans-serif;
 }
 
-// 根元素色彩
-// @value white: #FFFFFF;
-// @value main-pink: #F67599;
-// @value grey-800: #2A2A2A;
-// @value grey-700: #333333;
-// @value grey-400: #808080;
-// @value grey-300: #999999;
-
-
 body {
   --background-color: #FFFFFF;
   --footer-background-color: #F6F7F8;
@@ -52,26 +43,6 @@ body {
   font-size: 16px;
   user-select: none;
 }
-
-// body元素色彩
-// @value main-text: #2A2A2A;
-// @value secondary-text: #808080;
-// @value undone-progress-border: #F0F0F5;
-// @value done-progress-border: #000000;
-// @value progress-current-color: #2A2A2A;
-// @value progress-done-color: #FFFFFF;
-// @value progress-undone-color: #AFB1BD;
-// @value pg-addr-color: #FFFFFF;
-// @value pg-addr-bg-color: #2A2A2A;
-// @value input-label: #808080;
-// @value input-border: #4A4A4A;
-// @value input-text: #999999;
-// @value select-arrow: #2A2A2A;
-// @value select-true: #2A2A2A;
-// @value select-false: #999999;
-// @value product-action-text: #000000;
-// @value product-action-bg: #F0F0F5;
-// @value left-arrow: #000000;
 
 
 @mixin col-series($serial) {
