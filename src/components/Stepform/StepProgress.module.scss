@@ -15,10 +15,11 @@
 .progressBar {
   display: flex;
   flex-grow: 1;
+  box-sizing: border-box;
   max-width: 60px;
   height: 1px;
   margin: 0px 8px;
-  border: 2px solid var(--done-progress-border);
+  border: 1px solid var(--done-progress-border);
 }
 .pgbUndone {
   composes: progressBar;
