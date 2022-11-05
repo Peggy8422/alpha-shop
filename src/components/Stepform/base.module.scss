@@ -55,7 +55,7 @@ li {
 @mixin col-series($serial) {
   display: flex;
   flex-wrap: wrap;
-  $width: 100% / 12 * $serial;
+  $width: calc(100% / 12) * $serial;
   flex: 0 0 $width;
   align-content: flex-start;
   max-width: $width;
@@ -77,7 +77,7 @@ $form-full-width: 540;
 
 @for $index from 1 to 7 {
   :global(.input-w-#{$index}) {
-    width: 100% * (($index * 65 + ($index - 1) * 30) / $form-full-width);
+    width: calc(100% * (($index * 65 + ($index - 1) * 30) / $form-full-width));
   }
 }
 

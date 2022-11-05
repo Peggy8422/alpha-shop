@@ -1,4 +1,4 @@
-import {InputBox, InputGroup} from './StepOne.js';
+import {InputGroup} from './StepOne.js';
 import React from 'react';
 import styles from './StepThree.module.scss';
 import './base.module.scss';
@@ -8,20 +8,20 @@ function StepThreeContent() {
     <section>
       <div className="col col-12">
         <InputGroup global=" input-w-4" labelTitle="持卡人姓名">
-          <InputBox type="text" placeholder="John Doe" />
+          <input type="text" placeholder="John Doe" />
         </InputGroup>
       </div>
       <div className="col col-12">
         <InputGroup global=" input-w-4" labelTitle="卡號">
-          <InputBox type="text" placeholder="1111 2222 3333 4444" />
+          <input type="text" placeholder="1111 2222 3333 4444" />
         </InputGroup>
       </div>
       <div className="col col-12">
         <InputGroup global=" input-w-3" labelTitle="有效期限">
-          <InputBox type="text" placeholder="MM/YY" />
+          <input type="text" placeholder="MM/YY" />
         </InputGroup>
         <InputGroup global=" input-w-3" labelTitle="CVC / CCV">
-          <InputBox type="text" placeholder="123" />
+          <input type="text" placeholder="123" />
         </InputGroup>
       </div>
     </section>

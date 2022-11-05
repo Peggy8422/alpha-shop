@@ -2,9 +2,38 @@ import React from 'react';
 import styles from './StepOne.module.scss';
 import './base.module.scss';
 
-export function InputBox({type, placeholder}) {
-  return <input type={type} placeholder={placeholder} />;
-}
+const destricts = [
+  { value: "KLU", name: "基隆市" },
+  { value: "TPH", name: "新北市" },
+  { value: "TPE", name: "臺北市" },
+  { value: "TYC", name: "桃園市" },
+  { value: "HSH", name: "新竹縣" },
+  { value: "HSC", name: "新竹市" },
+  { value: "MAC", name: "苗栗市" },
+  { value: "MAL", name: "苗栗縣" },
+  { value: "TXG", name: "臺中市" },
+  { value: "CWH", name: "彰化縣" },
+  { value: "CWS", name: "彰化市" },
+  { value: "NTC", name: "南投市" },  
+  { value: "NTO", name: "南投縣" },
+  { value: "YLH", name: "雲林縣" },
+  { value: "CHY", name: "嘉義縣" },
+  { value: "CHI", name: "嘉義市" },
+  { value: "TNN", name: "臺南市" },
+  { value: "KHH", name: "高雄市" },
+  { value: "IUH", name: "屏東縣" },
+  { value: "PTS", name: "屏東市" },
+  { value: "ILN", name: "宜蘭縣" },
+  { value: "ILC", name: "宜蘭市" },  
+  { value: "HWA", name: "花蓮縣" },
+  { value: "HWC", name: "花蓮市" },
+  { value: "TTC", name: "臺東市" },
+  { value: "TTT", name: "臺東縣" },
+  { value: "PEH", name: "澎湖縣" },
+  { value: "KMN", name: "金門縣" },
+  { value: "LNN", name: "連江縣" }
+]
+
 
 //註記：有查詢到關於 react-select 提供的 Select元件的用法，以及defaultValue設定預設值搭配 useState()的做法，後續作業進度推進會再嘗試
 
@@ -18,9 +47,6 @@ export function SelectBox({children}) {
   );
 }
 
-export function Option({value, text}) {
-  return <option value={value}>{text}</option>;
-}
 
 export function InputGroup({global, labelTitle, children}) {
   return (
@@ -38,60 +64,34 @@ function StepOneContent() {
       <div className="col col-12">
         <InputGroup global=" input-w-2" labelTitle="稱謂">
           <SelectBox>
-            <Option value="mr" text="先生" />
-            <Option value="ms" text="女士"/>
-            <Option value="mx" text="不明"/>
+            <option value="mr">先生</option>
+            <option value="ms">女士</option>
+            <option value="mx">不明</option>
           </SelectBox>
         </InputGroup>
         <InputGroup global=" input-w-4" labelTitle="姓名">
-          <InputBox type="text" placeholder="請輸入姓名"/>
+          <input type="text" placeholder="請輸入姓名"/>
         </InputGroup>
       </div>
       <div className="col col-12">
         <InputGroup global=" input-w-3" labelTitle="電話">
-          <InputBox type="tel" placeholder="請輸入行動電話"/>
+          <input type="tel" placeholder="請輸入行動電話"/>
         </InputGroup>
         <InputGroup global=" input-w-3" labelTitle="Email">
-          <InputBox type="email" placeholder="請輸入電子郵件"/>
+          <input type="email" placeholder="請輸入電子郵件"/>
         </InputGroup>
       </div>
       <div className="col col-12">
         <InputGroup global=" input-w-2" labelTitle="縣市">
           <SelectBox>
-            <Option value="" text="請選擇縣市"/>
-            <Option value="KLU" text="基隆市"/>
-            <Option value="TPH" text="新北市"/>
-            <Option value="TPE" text="臺北市"/>
-            <Option value="TYC" text="桃園市"/>
-            <Option value="HSH" text="新竹縣"/>
-            <Option value="HSC" text="新竹市"/>
-            <Option value="MAC" text="苗栗市"/>     
-            <Option value="MAL" text="苗栗縣"/>
-            <Option value="TXG" text="臺中市"/>
-            <Option value="CWH" text="彰化縣"/>
-            <Option value="CWS" text="彰化市"/>
-            <Option value="NTC" text="南投市"/>
-            <Option value="NTO" text="南投縣"/>
-            <Option value="YLH" text="雲林縣"/>
-            <Option value="CHY" text="嘉義縣"/>
-            <Option value="CHI" text="嘉義市"/>
-            <Option value="TNN" text="臺南市"/>
-            <Option value="KHH" text="高雄市"/>
-            <Option value="IUH" text="屏東縣"/>
-            <Option value="PTS" text="屏東市"/>
-            <Option value="ILN" text="宜蘭縣"/>
-            <Option value="ILC" text="宜蘭市"/>
-            <Option value="HWA" text="花蓮縣"/>
-            <Option value="HWC" text="花蓮市"/>
-            <Option value="TTC" text="臺東市"/>
-            <Option value="TTT" text="臺東縣"/>
-            <Option value="PEH" text="澎湖縣"/>
-            <Option value="KMN" text="金門縣"/>
-            <Option value="LNN" text="連江縣"/>      
+            <option value="">請選擇縣市</option>
+            {destricts.map(destrict => 
+              <option value={destrict.value}>{destrict.name}</option>
+            )}     
           </SelectBox>
         </InputGroup>
         <InputGroup global=" input-w-4" labelTitle="地址">
-          <InputBox type="text" placeholder="請輸入地址"/>
+          <input type="text" placeholder="請輸入地址"/>
         </InputGroup>
       </div>
 
