@@ -44,6 +44,13 @@ body {
   user-select: none;
 }
 
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
 
 @mixin col-series($serial) {
   display: flex;
@@ -65,16 +72,6 @@ body {
   }
 }
 
-// @mixin input-width($prefix, $division) {
-//   $form-full-width: 540;
-
-//   @for $index from 1 to ($division + 1) {
-//     .#{$prefix}-#{$index} {
-//       width: 100% * (($index * 65 + ($index - 1) * 30) / $form-full-width);
-//     }
-//   }
-// }
-
 
 $form-full-width: 540;
 
@@ -90,6 +87,13 @@ $form-full-width: 540;
   width: 50%;
   height: 100%;
 }
+//右半部的container
+.CartContainer {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
 
 
 
