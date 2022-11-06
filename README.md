@@ -1,7 +1,7 @@
 # ALPHA Shop 
 Use React to build up a shopping cart page with components.
 
-![Index page](/public/AC-3-A3.jpg)
+![Index page](/public/AC-3-A4.jpg)
 
 ## Getting Started
 
