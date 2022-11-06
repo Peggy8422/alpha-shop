@@ -81,18 +81,32 @@ $form-full-width: 540;
   }
 }
 
-//左半部的container
+//表單主要區域
+.siteMain {
+  height: 100%; 
+  margin-top: 80px;
+  padding-left: var(--site-edge-margin);
+  padding-right: var(--site-edge-margin);
+  background-color: inherit;
+
+  .mainContainer {
+    display: flex;
+    position: relative;
+    height: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+//表單左半部的container
 .stepFormContainer {
   position: relative;
   width: 50%;
   height: 100%;
 }
-//右半部的container
-.CartContainer {
-  position: relative;
-  width: 50%;
-  height: 100%;
-}
+
 
 
 
