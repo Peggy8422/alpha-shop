@@ -86,7 +86,7 @@ function StepOneContent() {
           <SelectBox>
             <option value="">請選擇縣市</option>
             {destricts.map(destrict => 
-              <option value={destrict.value}>{destrict.name}</option>
+              <option value={destrict.value} key={destrict.value}>{destrict.name}</option>
             )}     
           </SelectBox>
         </InputGroup>
