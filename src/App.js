@@ -1,7 +1,7 @@
 import './App.css';
 import {useState} from 'react';
-import StepFormContainer from './components/Stepform/StepFormContainer.js';
-import CartContainer from './components/Cart/CartContainer.js';
+import StepFormContainer from './components/Stepform';
+import CartContainer from './components/Cart';
 import ProgressControl from './components/Stepform/ProgressControl.js';
 import styles from './components/Stepform/base.module.scss';
 import {cartItems} from './components/Cart/Cart.jsx';
