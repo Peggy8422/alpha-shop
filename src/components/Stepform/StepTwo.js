@@ -18,33 +18,41 @@ function RadioInfo({text, price, period}) {
 }
 
 
-function RadioGroup({id, children, ischecked = true}) {
+function RadioGroup({id, price, children, ischecked = true, setPrice}) {
   return (
     <label htmlFor={id} className={styles.radioGroup + " col col-12"}>
-      <input className={styles.inputRadio} id={id} type="radio" name="shipping" defaultChecked={ischecked} />
+      <input 
+        className={styles.inputRadio} 
+        id={id} 
+        type="radio" 
+        value={price} 
+        name="shipping" 
+        defaultChecked={ischecked}
+        onChange={(e) => setPrice(e.target.value)}
+      />
       {children}
     </label>
   );
 }
 
-function StepTwoContent() {
+function StepTwoContent({setDeliverPrice}) {  
   return (
     <section className={styles.formBody}>
-      <RadioGroup id="shipping-standard">
+      <RadioGroup id="shipping-standard" price={0} setPrice={setDeliverPrice}>
         <RadioInfo text="運送標準" price="免費" period="約 3~7 個工作天" />
       </RadioGroup>
-      <RadioGroup id="shipping-dhl" ischecked={false}>
+      <RadioGroup id="shipping-dhl" price={500} ischecked={false} setPrice={setDeliverPrice}>
         <RadioInfo text="DHL貨運" price="500" period="48 小時內送達" ischecked={false} />
       </RadioGroup>
     </section>
   );
 }
 
-function StepTwoWrapper() {
+function StepTwoWrapper({setDeliverPrice}) {
   return (
     <form className={styles.formContainer + " col col-12"}>
       <h3 className={styles.formTitle}>運送方式</h3>
-      <StepTwoContent />
+      <StepTwoContent setDeliverPrice={setDeliverPrice} />
     </form>
   );
 }

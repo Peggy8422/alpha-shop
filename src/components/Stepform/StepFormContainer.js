@@ -5,12 +5,12 @@ import StepThree from './StepThree.js';
 import styles from './base.module.scss';
 
 
-function StepFormContainer({step}) {
+function StepFormContainer({step, setDeliverPrice}) {
   return (
     <div className={styles.stepFormContainer}>
       <StepProgress step={step} />
       {step === 1 && <StepOne />}
-      {step === 2 && <StepTwo />}
+      {step === 2 && <StepTwo setDeliverPrice={setDeliverPrice} />}
       {step === 3 && <StepThree />}
     </div>
   );
