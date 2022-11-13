@@ -1,4 +1,5 @@
 import React from 'react';
+import {useState} from 'react';
 import styles from './StepOne.module.scss';
 import './base.module.scss';
 
@@ -36,11 +37,16 @@ const destricts = [
 
 
 //註記：有查詢到關於 react-select 提供的 Select元件的用法，以及defaultValue設定預設值搭配 useState()的做法，後續作業進度推進會再嘗試
-
+//先使用了 useState()的做法
 export function SelectBox({children}) {
+  const [choice, setChoice] = useState();
   return (
     <div className={styles.selectContainer}>
-      <select>
+      <select 
+        value={choice}
+        defaultValue="default"
+        onChange={(e) => setChoice(e.target.value)}
+      >
         {children}
       </select>
     </div>
@@ -84,7 +90,7 @@ function StepOneContent() {
       <div className="col col-12">
         <InputGroup global=" input-w-2" labelTitle="縣市">
           <SelectBox>
-            <option value="">請選擇縣市</option>
+            <option value="default" disabled>請選擇縣市</option>
             {destricts.map(destrict => 
               <option value={destrict.value} key={destrict.value}>{destrict.name}</option>
             )}     
