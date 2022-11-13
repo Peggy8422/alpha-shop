@@ -4,9 +4,10 @@ import {ReactComponent as IconRightArrow} from '../icons/right-arrow.svg';
 
 
 
-function Button({className, text}) {
+function Button({className, text, onStepToggle}) {
+
   return (
-    <button className={className}>
+    <button className={className} onClick={onStepToggle}>
       {text === '上一步' && <IconLeftArrow />}
       {text}
       {text === '下一步' && <IconRightArrow />}
@@ -22,20 +23,28 @@ function ButtonGroup({children}) {
   );
 }
 
-function ProgressControl() {
+function ProgressControl({step, setStep}) {
+  function handleStepForward() {
+    setStep(step + 1)
+  }
+
+  function handleStepBackward() {
+    setStep(step - 1)
+  }
+
   return (
     <section className={styles.progressControlContainer}>
-      <ButtonGroup>
-        <Button className={styles.next} text="下一步" />
-      </ButtonGroup>
-      {/* <ButtonGroup>
-        <Button className={styles.prev} text="上一步" />
-        <Button className={styles.next} text="下一步" />
-      </ButtonGroup>
-      <ButtonGroup>
-        <Button className={styles.prev} text="上一步" />
+      {step === 1 && <ButtonGroup>
+        <Button className={styles.next} text="下一步" onStepToggle={handleStepForward} />
+      </ButtonGroup>}
+      {step === 2 && <ButtonGroup>
+        <Button className={styles.prev} text="上一步" onStepToggle={handleStepBackward} />
+        <Button className={styles.next} text="下一步" onStepToggle={handleStepForward} />
+      </ButtonGroup>}
+      {step === 3 && <ButtonGroup>
+        <Button className={styles.prev} text="上一步" onStepToggle={handleStepBackward} />
         <Button className={styles.next} text="確認下單" />
-      </ButtonGroup> */}
+      </ButtonGroup>}
     </section>
   );
 }
