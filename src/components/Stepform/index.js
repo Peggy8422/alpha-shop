@@ -5,7 +5,7 @@ import StepThree from './StepThree.js';
 import styles from './base.module.scss';
 
 
-function StepFormContainer({step, setDeliverPrice}) {
+function StepForm({step, setDeliverPrice}) {
   return (
     <div className={styles.stepFormContainer}>
       <StepProgress step={step} />
@@ -16,4 +16,4 @@ function StepFormContainer({step, setDeliverPrice}) {
   );
 }
 
-export default StepFormContainer;
+export default StepForm;

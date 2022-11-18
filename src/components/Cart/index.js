@@ -1,5 +1,6 @@
-import {cartItems} from './Cart.jsx';
+import {CartContext} from './CartContext.js';
 import {useState} from 'react';
+import {useContext} from 'react';
 import {ReactComponent as IconMinus} from '../icons/minus.svg';
 import {ReactComponent as IconPlus} from '../icons/plus.svg';
 import styles from './CartContainer.module.scss';
@@ -13,9 +14,10 @@ function CartFooter({text, price}) {
   );
 }
 
-function ProductContainer({item, productsPrice, setProductsPrice}) {
-  const [quantity, setQuantity] = useState(item.quantity);
-
+function ProductContainer({item, setNewCartItems}) {
+  const [quantity, setQuantity] = useState(0); //額外設置計算渲染各別item數量的變數
+  const cartItems = useContext(CartContext);
+  //增減商品數量，原本使用單純計算購物車小計顯示的方式，改為重新存取整個購物清單資料更新後的內容(quantity改變的部分)
   return (
     <li className={styles.productContainer} data-price={item.price}>
       <img className={styles.image} src={item.img} alt={item.name} />
@@ -24,15 +26,29 @@ function ProductContainer({item, productsPrice, setProductsPrice}) {
         <div className={styles.productControlContainer}>
           <div className={styles.productControl}>
             <IconMinus className={styles.productAction} onClick={() => {
-              if (quantity > 0 && productsPrice > 0) {
+              if (quantity > 0 ) {
                 setQuantity(quantity - 1);
-                setProductsPrice(productsPrice - item.price);
+                setNewCartItems(cartItems.map(cartItem =>
+                  cartItem.id === item.id ?
+                  {...cartItem, quantity: quantity - 1}
+                  :
+                  cartItem
+                ));
+                // setProductsPrice(productsPrice - item.price);
+                console.log(cartItems)
               }
             }} />
             <span className={styles.productCount}>{quantity}</span>
             <IconPlus className={styles.productAction} onClick={() => {
               setQuantity(quantity + 1);
-              setProductsPrice(productsPrice + item.price);
+              setNewCartItems(cartItems.map(cartItem =>
+                cartItem.id === item.id ?
+                {...cartItem, quantity: quantity + 1}
+                :
+                cartItem
+              ));
+              // setProductsPrice(productsPrice + item.price);
+              console.log(cartItems)
             }} />
           </div>
         </div>
@@ -42,30 +58,25 @@ function ProductContainer({item, productsPrice, setProductsPrice}) {
   );
 }
 
-function ProductList({productsPrice, setProductsPrice}) {
-  return (
-    <ul className={styles.productList}>
-      {cartItems.map(cartItem =>
-        <ProductContainer 
-          item={cartItem} 
-          key={cartItem.id} 
-          productsPrice={productsPrice} 
-          setProductsPrice={setProductsPrice} 
-        />
-      )}
-    </ul>
-  );
-}
 
-function CartContainer({deliverPrice, productsPrice, setProductsPrice}) {
+function Cart({deliverPrice, setNewCartItems}) {
+  const cartItems = useContext(CartContext);
   return (
     <section className={styles.cartContainer + " col col-5"}>
       <h3 className={styles.cartTitle}>購物籃</h3>
-      <ProductList productsPrice={productsPrice} setProductsPrice={setProductsPrice} />
+      <ul className={styles.productList}>
+        {cartItems.map(cartItem => {
+          return <ProductContainer
+            key={cartItem.id}
+            item={cartItem} 
+            setNewCartItems={setNewCartItems} 
+          />
+        })}
+      </ul>
       <CartFooter text="運費" price={Number(deliverPrice) > 0 ? Number(deliverPrice) : '免費'} />
-      <CartFooter text="小計" price={Number(deliverPrice) + Number(productsPrice)} />
+      <CartFooter text="小計" price={Number(deliverPrice) + Number()} />
     </section>
   );
 }
 
-export default CartContainer;
+export default Cart;

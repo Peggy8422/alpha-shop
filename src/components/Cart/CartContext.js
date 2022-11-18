@@ -1,4 +1,6 @@
-export const cartItems = [
+import { createContext } from "react";
+
+const cartItems = [
   {
     id: '1',
     name: '貓咪罐罐',
@@ -15,3 +17,4 @@ export const cartItems = [
   },
 ]
 
+export const CartContext = createContext(cartItems);
