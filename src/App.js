@@ -34,9 +34,9 @@ function App() {
       <main className={styles.siteMain}>
         <div className={styles.mainContainer}>
           <SubmitContext.Provider value={newSubmitContent}>
-            <StepForm step={step} setDeliverPrice={setDeliverPrice} setNewSubmitContent={setNewSubmitContent} />
             <CartContext.Provider value={newCartItems}>
-                <Cart deliverPrice={deliverPrice} setNewCartItems={setNewCartItems} setNewSubmitContent={setNewSubmitContent} />
+              <StepForm step={step} setDeliverPrice={setDeliverPrice} setNewSubmitContent={setNewSubmitContent} />
+              <Cart deliverPrice={deliverPrice} setNewCartItems={setNewCartItems} setNewSubmitContent={setNewSubmitContent} />
             </CartContext.Provider>
             <ProgressControl step={step} setStep={setStep} deliverPrice={deliverPrice} setNewSubmitContent={setNewSubmitContent} />
           </SubmitContext.Provider>
