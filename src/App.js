@@ -1,6 +1,5 @@
 import './App.css';
-import {useState, useContext} from 'react';
-import {createContext} from "react";
+import {useState, useContext, createContext} from 'react';
 import {CartContext} from './components/Cart/CartContext.js';
 import StepForm from './components/Stepform';
 import Cart from './components/Cart';

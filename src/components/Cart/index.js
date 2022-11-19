@@ -1,7 +1,7 @@
+import {useContext} from 'react';
 import {CartContext} from './CartContext.js';
 import {SubmitContext} from '../../App.js';
 import Product from './Product.js';
-import {useContext} from 'react';
 import styles from './Cart.module.scss';
 
 function CartFooter({text, price}) {

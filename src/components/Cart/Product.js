@@ -1,7 +1,6 @@
 import {CartContext} from './CartContext.js';
 import {SubmitContext} from '../../App.js';
-import {useState} from 'react';
-import {useContext} from 'react';
+import {useState, useContext} from 'react';
 import {ReactComponent as IconMinus} from '../icons/minus.svg';
 import {ReactComponent as IconPlus} from '../icons/plus.svg';
 import styles from './Cart.module.scss';
