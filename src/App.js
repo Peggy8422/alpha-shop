@@ -5,7 +5,6 @@ import StepForm from './components/Stepform';
 import Cart from './components/Cart';
 import ProgressControl from './components/Stepform/ProgressControl';
 import styles from './components/Stepform/base.module.scss';
-// import {cartItems} from './components/Cart/Cart.jsx';
 
 //提交表單的Context資料
 export const SubmitContext = createContext({
