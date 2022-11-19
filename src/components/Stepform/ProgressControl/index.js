@@ -35,6 +35,10 @@ function ProgressControl({step, setStep}) {
   }
 
   function handleSubmit() {
+    Object.values(submitContent).some(value => value === '') ?
+    alert('請填寫完整欄位!')
+    :
+    alert('已下單完成，感謝購買!')
     console.log(submitContent)
   }
 
