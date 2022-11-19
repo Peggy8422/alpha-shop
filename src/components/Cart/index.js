@@ -1,4 +1,5 @@
 import {CartContext} from './CartContext.js';
+import {SubmitContext} from '../../App.js';
 import {useState} from 'react';
 import {useContext} from 'react';
 import {ReactComponent as IconMinus} from '../icons/minus.svg';
@@ -14,9 +15,10 @@ function CartFooter({text, price}) {
   );
 }
 
-function ProductContainer({item, setNewCartItems}) {
+function ProductContainer({item, setNewCartItems, setNewSubmitContent}) {
   const [quantity, setQuantity] = useState(0); //額外設置計算渲染各別item數量的變數
   const cartItems = useContext(CartContext);
+  const submitContent = useContext(SubmitContext);
   //增減商品數量，原本使用單純計算購物車小計顯示的方式，改為重新存取整個購物清單資料更新後的內容(quantity改變的部分)
   return (
     <li className={styles.productContainer} data-price={item.price}>
@@ -34,8 +36,10 @@ function ProductContainer({item, setNewCartItems}) {
                   :
                   cartItem
                 ));
+                setNewSubmitContent({
+                  ...submitContent, total: submitContent.total - item.price
+                });
                 // setProductsPrice(productsPrice - item.price);
-                console.log(cartItems)
               }
             }} />
             <span className={styles.productCount}>{quantity}</span>
@@ -47,8 +51,10 @@ function ProductContainer({item, setNewCartItems}) {
                 :
                 cartItem
               ));
+              setNewSubmitContent({
+                ...submitContent, total: submitContent.total + item.price
+              });
               // setProductsPrice(productsPrice + item.price);
-              console.log(cartItems)
             }} />
           </div>
         </div>
@@ -59,8 +65,9 @@ function ProductContainer({item, setNewCartItems}) {
 }
 
 
-function Cart({deliverPrice, setNewCartItems}) {
+function Cart({deliverPrice, setNewCartItems, setNewSubmitContent}) {
   const cartItems = useContext(CartContext);
+  const submitContent = useContext(SubmitContext);
   return (
     <section className={styles.cartContainer + " col col-5"}>
       <h3 className={styles.cartTitle}>購物籃</h3>
@@ -70,11 +77,12 @@ function Cart({deliverPrice, setNewCartItems}) {
             key={cartItem.id}
             item={cartItem} 
             setNewCartItems={setNewCartItems} 
+            setNewSubmitContent={setNewSubmitContent}
           />
         })}
       </ul>
       <CartFooter text="運費" price={Number(deliverPrice) > 0 ? Number(deliverPrice) : '免費'} />
-      <CartFooter text="小計" price={Number(deliverPrice) + Number()} />
+      <CartFooter text="小計" price={Number(submitContent.total)} />
     </section>
   );
 }
