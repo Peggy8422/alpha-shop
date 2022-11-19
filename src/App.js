@@ -22,8 +22,6 @@ function App() {
   const [step, setStep] = useState(1);
   //計算運費，設置運費狀態
   const [deliverPrice, setDeliverPrice] = useState(0);
-  //計算所有子元件有影響金額變動的地方，設置小計狀態
-  // const [productsPrice, setProductsPrice] = useState(0);
   //初始購物車資料
   const initialCartData = useContext(CartContext);
   const [newCartItems, setNewCartItems] = useState(initialCartData);

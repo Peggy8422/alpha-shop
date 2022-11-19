@@ -30,7 +30,6 @@ function ProductContainer({item, setNewCartItems, setNewSubmitContent}) {
                 setNewSubmitContent({
                   ...submitContent, total: submitContent.total - item.price
                 });
-                // setProductsPrice(productsPrice - item.price);
               }
             }} />
             <span className={styles.productCount}>{quantity}</span>
@@ -45,7 +44,6 @@ function ProductContainer({item, setNewCartItems, setNewSubmitContent}) {
               setNewSubmitContent({
                 ...submitContent, total: submitContent.total + item.price
               });
-              // setProductsPrice(productsPrice + item.price);
             }} />
           </div>
         </div>
