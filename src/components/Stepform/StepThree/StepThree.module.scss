@@ -1,0 +1,13 @@
+
+.formContainer {
+  composes: formContainer from "../StepOne/StepOne.module.scss";
+}
+
+.formTitle {
+  composes: formTitle from "../StepOne/StepOne.module.scss";
+}
+
+.formBody {
+  width: 100%;
+}
+

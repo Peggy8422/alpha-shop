@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import styles from './StepOne.module.scss';
-import './base.module.scss';
+import '../base.module.scss';
 
 const destricts = [
   { value: "KLU", name: "基隆市" },

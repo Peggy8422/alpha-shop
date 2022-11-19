@@ -1,8 +1,14 @@
 # ALPHA Shop 
 Use React to build up a shopping cart page with components.
 
-![Index page](/public/AC-3-A4.jpg)
+![Index page](/public/AC-3-A6.jpg)
 
+## Features
+
+* Toggle steps with "prev step" and "next step" button
+* Increase and decrease the amount of cart items with "+" and "-" button
+* Submit the last form(StepThree) and check the submitted data in Console of DevTools
+ 
 ## Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

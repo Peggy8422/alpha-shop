@@ -4,7 +4,7 @@ import {createContext} from "react";
 import {CartContext} from './components/Cart/CartContext.js';
 import StepForm from './components/Stepform';
 import Cart from './components/Cart';
-import ProgressControl from './components/Stepform/ProgressControl.js';
+import ProgressControl from './components/Stepform/ProgressControl';
 import styles from './components/Stepform/base.module.scss';
 // import {cartItems} from './components/Cart/Cart.jsx';
 

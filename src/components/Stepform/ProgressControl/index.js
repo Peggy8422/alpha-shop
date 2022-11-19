@@ -1,8 +1,8 @@
 import {useContext} from 'react';
-import {SubmitContext} from '../../App';
+import {SubmitContext} from '../../../App.js';
 import styles from './ProgressControl.module.scss';
-import {ReactComponent as IconLeftArrow} from '../icons/left-arrow.svg';
-import {ReactComponent as IconRightArrow} from '../icons/right-arrow.svg';
+import {ReactComponent as IconLeftArrow} from '../../icons/left-arrow.svg';
+import {ReactComponent as IconRightArrow} from '../../icons/right-arrow.svg';
 
 
 function Button({className, text, onStepToggle}) {

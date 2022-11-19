@@ -1,8 +1,8 @@
-import {InputGroup} from './StepOne.js';
+import {InputGroup} from '../StepOne';
 import React, {useContext} from 'react';
-import {SubmitContext} from '../../App.js';
+import {SubmitContext} from '../../../App.js';
 import styles from './StepThree.module.scss';
-import './base.module.scss';
+import '../base.module.scss';
 
 
 

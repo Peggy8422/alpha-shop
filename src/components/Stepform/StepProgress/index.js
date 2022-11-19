@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './StepProgress.module.scss';
-import {ReactComponent as IconPgComplete} from '../icons/pg-complete.svg';
+import {ReactComponent as IconPgComplete} from '../../icons/pg-complete.svg';
 
 function Step({stepNum, step, label}) {
   return (

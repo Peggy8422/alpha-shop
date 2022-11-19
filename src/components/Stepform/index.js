@@ -1,7 +1,7 @@
-import StepProgress from './StepProgress.js';
-import StepOne from './StepOne.js';
-import StepTwo from './StepTwo.js';
-import StepThree from './StepThree.js';
+import StepProgress from './StepProgress';
+import StepOne from './StepOne';
+import StepTwo from './StepTwo';
+import StepThree from './StepThree';
 import styles from './base.module.scss';
 
 

@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
-import {SubmitContext} from '../../App.js';
+import {SubmitContext} from '../../../App.js';
 import styles from './StepTwo.module.scss';
-import './base.module.scss';
+import '../base.module.scss';
 
 function RadioInfo({text, price, period}) {
   return (
