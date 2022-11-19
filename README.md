@@ -66,4 +66,4 @@ You can learn more and get informations in the [Create React App documentation](
 
 ## Develop Tools and Packages Used
 - Node.js @14.18.1
-- All packages and webpack settings provide by using create-react-app
+- All packages and webpack settings provided by using create-react-app
